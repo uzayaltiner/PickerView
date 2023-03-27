@@ -3,15 +3,20 @@ import UIKit
 
 public final class ImagePickerView: UIImageView {
     // MARK: - Properties -
-    private var placeholderImage: UIImage?
-    private var color: UIColor?
+    public var placeholderImage: UIImage? {
+        didSet {
+            image = placeholderImage
+        }
+    }
+    public var color: UIColor? {
+        didSet {
+            backgroundColor = color
+        }
+    }
     public var onImagePicked: ((UIImage) -> Void)?
-    public init(placeholderImage: UIImage? = nil, color: UIColor? = .clear) {
-        self.placeholderImage = placeholderImage
-        self.color = color
+    public init() {
         super.init(frame: .zero)
         setupTapGestureRecognizer()
-        configuration()
     }
 
     @available(*, unavailable)
@@ -22,11 +27,6 @@ public final class ImagePickerView: UIImageView {
     override public func awakeFromNib() {
         super.awakeFromNib()
         setupTapGestureRecognizer()
-    }
-
-    func configuration() {
-        image = placeholderImage ?? nil
-        backgroundColor = color
     }
 
     private func setupTapGestureRecognizer() {
