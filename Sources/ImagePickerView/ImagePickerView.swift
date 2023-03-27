@@ -11,6 +11,7 @@ public final class ImagePickerView: UIImageView {
         self.placeholderImage = placeholderImage
         super.init(frame: .zero)
         setupTapGestureRecognizer()
+        configuration()
     }
 
     @available(*, unavailable)
@@ -23,7 +24,7 @@ public final class ImagePickerView: UIImageView {
         setupTapGestureRecognizer()
     }
     
-    func configurations(){
+    func configuration(){
         image = placeholderImage ?? nil
     }
 
