@@ -2,19 +2,29 @@ import Foundation
 import UIKit
 
 public final class ImagePickerView: UIImageView {
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
+
+    // MARK: - Properties -
+
+    private var placeholderImage: UIImage?
+
+    public init(placeholderImage: UIImage? = nil) {
+        self.placeholderImage = placeholderImage
+        super.init(frame: .zero)
         setupTapGestureRecognizer()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupTapGestureRecognizer()
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override public func awakeFromNib() {
         super.awakeFromNib()
         setupTapGestureRecognizer()
+    }
+    
+    func configurations(){
+        image = placeholderImage ?? nil
     }
 
     private func setupTapGestureRecognizer() {
