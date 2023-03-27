@@ -3,8 +3,10 @@ import UIKit
 
 public final class ImagePickerView: UIImageView {
     // MARK: - Properties -
+
     private var placeholderImage: UIImage?
     private var color: UIColor?
+    let imagePickerController = UIImagePickerController()
 
     public init(placeholderImage: UIImage? = nil, color: UIColor? = .clear) {
         self.placeholderImage = placeholderImage
@@ -36,12 +38,14 @@ public final class ImagePickerView: UIImageView {
     }
 
     public func showImagePicker() {
-        let imagePickerController = UIImagePickerController()
+        
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
 
         if let topViewController = UIApplication.shared.keyWindow?.rootViewController {
-            topViewController.present(imagePickerController, animated: true, completion: nil)
+            DispatchQueue.main.async { [self] in
+                topViewController.present(imagePickerController, animated: true, completion: nil)
+            }
         }
     }
 
