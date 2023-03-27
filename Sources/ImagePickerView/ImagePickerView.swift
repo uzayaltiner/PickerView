@@ -3,11 +3,9 @@ import UIKit
 
 public final class ImagePickerView: UIImageView {
     // MARK: - Properties -
-
     private var placeholderImage: UIImage?
     private var color: UIColor?
-    let imagePickerController = UIImagePickerController()
-
+    public var onImagePicked: ((UIImage) -> Void)?
     public init(placeholderImage: UIImage? = nil, color: UIColor? = .clear) {
         self.placeholderImage = placeholderImage
         self.color = color
@@ -38,12 +36,12 @@ public final class ImagePickerView: UIImageView {
     }
 
     public func showImagePicker() {
-        
+        let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
 
         if let topViewController = UIApplication.shared.keyWindow?.rootViewController {
-            DispatchQueue.main.async { [self] in
+            DispatchQueue.main.async {
                 topViewController.present(imagePickerController, animated: true, completion: nil)
             }
         }
@@ -58,6 +56,7 @@ extension ImagePickerView: UIImagePickerControllerDelegate, UINavigationControll
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = selectedImage
+            onImagePicked?(selectedImage)
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -65,4 +64,5 @@ extension ImagePickerView: UIImagePickerControllerDelegate, UINavigationControll
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
 }
