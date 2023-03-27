@@ -2,7 +2,28 @@ import Foundation
 import UIKit
 
 public final class ImagePickerView: UIImageView {
-    func showImagePicker() {
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        setupTapGestureRecognizer()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupTapGestureRecognizer()
+    }
+
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        setupTapGestureRecognizer()
+    }
+
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
+        isUserInteractionEnabled = true
+        addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    public func showImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
@@ -10,14 +31,6 @@ public final class ImagePickerView: UIImageView {
         if let topViewController = UIApplication.shared.keyWindow?.rootViewController {
             topViewController.present(imagePickerController, animated: true, completion: nil)
         }
-    }
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
-        isUserInteractionEnabled = true
-        addGestureRecognizer(tapGestureRecognizer)
     }
 
     @objc public func imageViewTapped() {
