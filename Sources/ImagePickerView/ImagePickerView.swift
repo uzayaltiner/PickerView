@@ -19,6 +19,7 @@ public final class ImagePickerView: UIImageView {
         }
     }
     
+    /// Determines what happens after the image is selected and returns a UIImage.
     public var onImagePicked: ((UIImage) -> Void)?
     public init() {
         super.init(frame: .zero)
