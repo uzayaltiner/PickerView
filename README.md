@@ -35,7 +35,10 @@ imageView.onImagePicker = { selectedImage in
 
 I made this to improve myself and we can add more features for expand the library. If you want to help, feel free to create PR.
 
-  
+## Contact
+
+For your requests and suggestions, you can contact with me from uzayaltiner@gmail.com
+
 ## License
 
 [MIT](https://github.com/uzayaltiner/ImagePickerView/blob/main/LICENSE)
