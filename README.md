@@ -38,6 +38,6 @@ I made this to improve myself and we can add more features for expand the librar
   
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/uzayaltiner/ImagePickerView/blob/main/LICENSE)
 
   
