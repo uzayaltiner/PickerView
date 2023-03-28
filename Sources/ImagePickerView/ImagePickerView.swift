@@ -13,6 +13,12 @@ public final class ImagePickerView: UIImageView {
             backgroundColor = color
         }
     }
+    public var cornerRadius: CGFloat? {
+        didSet {
+            layer.cornerRadius = cornerRadius ?? 0
+        }
+    }
+    
     public var onImagePicked: ((UIImage) -> Void)?
     public init() {
         super.init(frame: .zero)
