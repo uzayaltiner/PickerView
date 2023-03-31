@@ -1,11 +1,12 @@
 
+
 # ImagePickerView
 ImagePickerView allows you to combine UIImageView and UIImagePicker in one line of code. Ready to use in Storyboard or Programmatic coding.
 ## Installation
 
 **Swift Package Manager**
 
-In Xcode go to `File`  -> `Add Packages`  and insert url:
+In Xcode go to `File`  -> `Add Packages`  and insert uArl:
 
 ```https://github.com/uzayaltiner/ImagePickerView```
 
@@ -34,6 +35,16 @@ imageView.onImagePicker = { selectedImage in
 ```
 ## DocumentPicker
 
+**Usage**
+```swift
+let exampleView = UIView()
+exampleView.setupDocumentPicker { url in
+        // After selecting the document's url path, you can perform the operations you want to do here.
+    }
+view.addSubview(exampleView)
+```
+
+
 ## Contribute
 
 I made this to improve myself and we can add more features for expand the library. If you want to help, feel free to create PR.
@@ -45,5 +56,3 @@ For your requests and suggestions, you can contact with me from uzayaltiner@gmai
 ## License
 
 [MIT](https://github.com/uzayaltiner/ImagePickerView/blob/main/LICENSE)
-
-  
