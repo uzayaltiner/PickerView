@@ -23,12 +23,12 @@ view.addSubview(imageView)
 Thats all!
 
 **Properties** (more to come)
-```
+```swift
 imageView.placeholder = UIImage(named: "your_asset")
 imageView.color = .yourColor
 ```
 
-```
+```swift
 imageView.onImagePicker = { selectedImage in
   // After selecting the image, you can perform the operations you want to do here.
 }
