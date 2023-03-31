@@ -26,6 +26,7 @@ Thats all!
 ```swift
 imageView.placeholder = UIImage(named: "your_asset")
 imageView.color = .yourColor
+imageView.cornerRadius = 10
 ```
 
 ```swift
