@@ -9,8 +9,8 @@ In Xcode go to `File`  -> `Add Packages`  and insert url:
 
 ```https://github.com/uzayaltiner/ImagePickerView```
 
-## Quick Start
-# ImagePickerView
+# Quick Start
+## ImagePickerView
 ```import ImagePickerView```
 
 **Usage**
@@ -32,7 +32,7 @@ imageView.onImagePicker = { selectedImage in
   // After selecting the image, you can perform the operations you want to do here.
 }
 ```
-# DocumentPicker
+## DocumentPicker
 
 ## Contribute
 
