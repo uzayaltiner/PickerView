@@ -3,22 +3,25 @@ import UIKit
 
 public final class ImagePickerView: UIImageView {
     // MARK: - Properties -
+
     public var placeholderImage: UIImage? {
         didSet {
             image = placeholderImage
         }
     }
+
     public var color: UIColor? {
         didSet {
             backgroundColor = color
         }
     }
+
     public var cornerRadius: CGFloat? {
         didSet {
             layer.cornerRadius = cornerRadius ?? 0
         }
     }
-    
+
     /// Determines what happens after the image is selected and returns a UIImage.
     public var onImagePicked: ((UIImage) -> Void)?
     public init() {
@@ -47,7 +50,7 @@ public final class ImagePickerView: UIImageView {
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
 
-        if let topViewController = UIApplication.shared.keyWindow?.rootViewController {
+        if let topViewController = findViewController() {
             DispatchQueue.main.async {
                 topViewController.present(imagePickerController, animated: true, completion: nil)
             }
@@ -71,5 +74,16 @@ extension ImagePickerView: UIImagePickerControllerDelegate, UINavigationControll
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+}
+
+private extension UIView {
+    func findViewController() -> UIViewController? {
+        if let nextResponder = next as? UIViewController {
+            return nextResponder
+        } else if let nextResponder = next as? UIView {
+            return nextResponder.findViewController()
+        } else {
+            return nil
+        }
+    }
 }
