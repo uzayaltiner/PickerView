@@ -1,7 +1,7 @@
 
 
 # ImagePickerView
-ImagePickerView allows you to combine UIImageView and UIImagePicker in one line of code. Ready to use in Storyboard or Programmatic coding.
+ImagePickerView allows you to combine UIImageView and UIImagePicker in one line of code. Also adds Document Picker with single line of code to any UIView. Ready to use in Storyboard or Programmatic coding.
 ## Installation
 
 **Swift Package Manager**
