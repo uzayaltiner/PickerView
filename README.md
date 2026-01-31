@@ -11,7 +11,7 @@ In Xcode go to `File`  -> `Add Packages`  and insert uArl:
 ```https://github.com/uzayaltiner/ImagePickerView```
 
 # Quick Start
-## ImagePickerView
+## ImagePickerView..
 ```import ImagePickerView```
 
 **Usage**
